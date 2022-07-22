@@ -53,48 +53,40 @@
     <div class="container2">
       <div class="details">
         <v-data-table :headers="headers" :items="pricing" class="elevation-1">
-          <v-dialog v-model="dialog" max-width="500px">
-            <template v-slot:activator="{ on, attrs }">
-            <v-btn
-              color="primary"
-              dark
-              class="mb-2"
-              v-bind="attrs"
-              v-on="on"
-            >
-              New Item
-            </v-btn>
-          </template>
-            <v-card>
-              <v-card-title>
-                <span class="text-h5">Add ticket number</span>
-              </v-card-title>
-
-              <v-card-text>
-                <v-container>
-                  <v-row>
-                    <v-col cols="12" sm="6" md="4">
-                      <v-text-field
-                        v-model="item"
-                        label="Number"
-                      ></v-text-field>
-                    </v-col>
-                  </v-row>
-                </v-container>
-              </v-card-text>
-
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn color="blue darken-1" text @click="close">
-                  Cancel
+          <template v-slot:top>
+            <v-dialog v-model="dialog" persistent max-width="290">
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn color="primary" dark v-bind="attrs" v-on="on">
+                  Open Dialog
                 </v-btn>
-                <v-btn color="blue darken-1" text @click="save"> Save </v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-dialog>
+              </template>
+              <v-card>
+                <v-card-title class="text-h5">
+                  Number of tickets?
+                </v-card-title>
+                <v-col cols="12" sm="6" md="4">
+                     <v-select
+                      :items="['1', '2', '3', '4']"
+                      label="Number*"
+                      required
+                    ></v-select>
+                    <v-spacer></v-spacer>
+                </v-col>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn color="primary darken-1" text @click="dialog = false">
+                    Cancele
+                  </v-btn>
+                  <v-btn color="primary darken-1" text @click="dialog = false">
+                    Save
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+          </template>
 
           <template v-slot:item.number="{ item }">
-            <v-icon color="black" @click="onButtonClick(item)">mdi-plus</v-icon>
+            <v-icon color="black" @click="dialog = true">mdi-plus</v-icon>
           </template>
         </v-data-table>
       </div>
@@ -107,7 +99,7 @@ export default {
   data: () => ({
     model: 0,
     show: false,
-    dialog: true,
+    dialog: false,
     item: {
       id: 1,
       title: "Top western road trips",
@@ -170,7 +162,7 @@ export default {
   methods: {
     onButtonClick(item) {
       console.log("click on " + item.number);
-      this.dialog = true
+      this.dialog = true;
     },
   },
 };
