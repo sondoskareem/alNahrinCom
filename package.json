@@ -19,6 +19,7 @@
     "webpack": "^4.46.0"
   },
   "devDependencies": {
+    "@mdi/font": "^7.0.96",
     "@nuxtjs/style-resources": "^1.2.1",
     "@nuxtjs/vuetify": "^1.12.3",
     "fibers": "^5.0.1",

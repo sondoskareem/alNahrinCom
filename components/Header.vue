@@ -9,9 +9,9 @@
         </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-xs-only">
-        <v-btn text>Home</v-btn>
-        <v-btn text>About</v-btn>
-        <v-btn text>Contact</v-btn>
+        <v-btn text><nuxt-link to="/">Home</nuxt-link></v-btn>
+        <v-btn text><nuxt-link to="/event">Event</nuxt-link></v-btn>
+        <v-btn text><nuxt-link to="/">Contact Us</nuxt-link></v-btn>
         <v-btn text>
           <v-avatar>
             <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John" />
@@ -25,7 +25,7 @@
           </template>
           <v-list class="responsiveMenu">
             <v-list-item>
-              <v-list-item-title>Home</v-list-item-title>
+              <v-list-item-title to="/event">Event</v-list-item-title>
             </v-list-item>
             <v-list-item>
               <v-list-item-title>About</v-list-item-title>

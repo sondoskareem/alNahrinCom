@@ -28,7 +28,7 @@
             </v-card-text>
 
             <v-card-actions>
-              <v-btn color="primary" text> View more ... </v-btn>
+              <v-btn color="primary" text to="/event"> View more ... </v-btn>
             </v-card-actions>
           </v-card>
       </v-slide-item>
