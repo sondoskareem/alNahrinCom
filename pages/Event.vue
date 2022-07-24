@@ -1,6 +1,8 @@
 <template>
-  <div class="">
-    <div class="container1">
+  <!-- <v-container> -->
+  <!-- <v-row> -->
+  <div>
+    <v-row class="container1">
       <div class="card-container">
         <v-flex class="card-flex">
           <div class="card-text">
@@ -43,34 +45,31 @@
             <!-- <p>Any1</p> -->
           </div>
           <div class="card-img">
-            <v-img :src="item.src" height="100%"></v-img>
+            <!-- <v-img :src="item.src" height="100%"></v-img> -->
             <!-- <p>Any</p> -->
           </div>
         </v-flex>
       </div>
-    </div>
+    </v-row>
 
     <div class="container2">
+      <div class="more-details"></div>
+
       <div class="details">
         <v-data-table :headers="headers" :items="pricing" class="elevation-1">
           <template v-slot:top>
             <v-dialog v-model="dialog" persistent max-width="290">
-              <template v-slot:activator="{ on, attrs }">
-                <v-btn color="primary" dark v-bind="attrs" v-on="on">
-                  Open Dialog
-                </v-btn>
-              </template>
               <v-card>
                 <v-card-title class="text-h5">
                   Number of tickets?
                 </v-card-title>
                 <v-col cols="12" sm="6" md="4">
-                     <v-select
-                      :items="['1', '2', '3', '4']"
-                      label="Number*"
-                      required
-                    ></v-select>
-                    <v-spacer></v-spacer>
+                  <v-select
+                    :items="['1', '2', '3', '4']"
+                    label="Number*"
+                    required
+                  ></v-select>
+                  <v-spacer></v-spacer>
                 </v-col>
                 <v-card-actions>
                   <v-spacer></v-spacer>
@@ -92,6 +91,9 @@
       </div>
     </div>
   </div>
+
+  <!-- </v-row> -->
+  <!-- </v-container> -->
 </template>
 
 <script>
@@ -169,8 +171,12 @@ export default {
 </script>
 
 <style lang="css" scoped>
+@media only screen and (min-width: 1200px) {
+  .container1 {
+    height: 70vh;
+  }
+}
 .container1 {
-  height: 60vh;
   width: 100%;
   max-width: 100vw;
   background-color: rgb(255, 255, 255);
@@ -178,8 +184,14 @@ export default {
 }
 .container2 {
   height: 60vh;
+  width: 100%;
   max-width: 100vw;
   margin: 10rem 0;
+  display: flex;
+  padding: 3rem;
+
+  justify-content: center;
+  /* margin-top: 10rem; */
 }
 .card-container {
   position: absolute;
@@ -188,7 +200,7 @@ export default {
   left: 50%;
   top: 10%;
   transform: translateX(-50%);
-  background-color: rgb(243, 243, 243);
+  /* background-color: rgb(243, 243, 243); */
 }
 .card-flex {
   display: flex;
@@ -202,6 +214,8 @@ export default {
   display: flex;
   gap: 10px;
   flex-direction: column;
+    background-color: rgb(243, 243, 243);
+
   /* width: 70%; */
 }
 .bodd {
@@ -210,8 +224,17 @@ export default {
 .card-img {
   overflow: hidden;
   width: 60%;
+  /* height: 100%; */
+  background-image: url("../assets/images/img3.jpg");
+  background-size:cover;
 }
 .details {
-  padding: 3rem;
+  flex-grow: 1;
+  width: 60%;
+}
+.more-details {
+  background-color: rgb(113, 144, 171);
+  height: 100%;
+  width: 30%;
 }
 </style>
