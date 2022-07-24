@@ -53,7 +53,7 @@
     </v-row>
 
     <div class="container2">
-      <div class="more-details"></div>
+      <!-- <div class="more-details"></div> -->
 
       <div class="details">
         <v-data-table :headers="headers" :items="pricing" class="elevation-1">
