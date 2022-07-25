@@ -73,9 +73,8 @@
         </div>
 
         <div class="details-bottom">
-
           <div class="share-socials">
-           <p class="share-event-p">Share the event with your friends</p>
+            <p class="share-event-p">Share the event with your friends</p>
             <a> <v-icon medium color="black">mdi-skype</v-icon> </a>
             <a><v-icon medium color="black">mdi-instagram</v-icon></a>
             <a><v-icon medium color="black">mdi-facebook</v-icon></a>
@@ -97,7 +96,7 @@
                   <th class="text-right">Details</th>
                   <th class="text-right">Reg. Deadline</th>
                   <th class="text-right">Price</th>
-                  <th class="text-right">Number</th>
+                  <th class="text-right">Select number of tickets</th>
                 </tr>
               </thead>
               <tbody>
@@ -120,7 +119,60 @@
         </template>
       </div>
     </div>
+
+    <div class="container3">
+      <div class="course-details">
+        <div class="">
+          <h4 class="course-details-h4">Course Subjects</h4>
+
+          <div class="">
+            <h6>Timing</h6>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti
+              perferendis sed officiis eum, obcaecati aliquid id voluptas cum
+              aliquam, nihil rem ullam odio placeat similique, corrupti dolores
+              est. Temporibus corrupti repellat aut ea beatae voluptatibus.
+              Nihil rerum quo hic quasi debitis fugit sequi.
+              Nam impedit rerum numquam possimus natus totam voluptatibus
+              corrupti fugit repellendus, tenetur placeat iusto deserunt.
+            </p>
+          </div>
+        </div>
+
+         <div class="">
+            <h6>Financial managment</h6>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti
+              perferendis sed officiis eum, obcaecati aliquid id voluptas cum
+              aliquam, nihil rem ullam odio placeat similique, corrupti dolores
+              est. Temporibus corrupti repellat aut ea beatae voluptatibus.
+              Nihil rerum quod quasi earum, itaque necessitatibus molestiae
+              voluptates perferendis odit animi voluptate aliquid ullam commodi
+              iure exercitationem ut magnam mollitia sapiente debitis, ab quia
+              repellat minima nesciunt quo? Corporis harum facilis optio?
+              Laboriosam cumque veritatis dignissimos maxime, excepturi, quaerat
+              dolore eaque sunt quibusdam autem hic quasi debitis fugit sequi.
+              Nam impedit rerum numquam possimus natus totam voluptatibus
+              corrupti fugit repellendus, tenetur placeat iusto deserunt.
+            </p>
+        </div>
+
+         <div class="">
+            <h6>How to make more money</h6>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti
+              perferendis sed officiis eum, obcaecati aliquid id voluptas cum
+              aliquam, nihil rem ullam odio placeat similique, corrupti dolores
+              corrupti fugit repellendus, tenetur placeat iusto deserunt.
+            </p>
+        </div>
+      </div>
+    </div>
+
+    <BestSeller/>
+
   </div>
+
 </template>
 
       </div>
@@ -132,82 +184,82 @@
 </template>
 
 <script>
+import BestSeller from '../components/BestSeller.vue';
 export default {
-  data: () => ({
-    model: 0,
-    show: false,
-    dialog: false,
-    editedItem: {
-      number: 0,
+    data: () => ({
+        model: 0,
+        show: false,
+        dialog: false,
+        editedItem: {
+            number: 0,
+        },
+        item: {
+            id: 1,
+            title: "Top western road trips",
+            subtitle: " scrambled it to make a type specimen book.",
+            description: "specimen book. It ucius mei ei, debitis torquatos et pro, eos natum scribentur no. Putant verear constituto te qui. Adolescens persequeris vim ei. It ucius mei ei, debitis torquatos et pro, eos natum scribentur no. Putant verear constituto te qui. Adolescens persequeris vim ei. Vel nullam reprimique te.",
+            src: require("../assets/images/img3.jpg"),
+            time: "2022/9/9 15:30",
+        },
+        headers: [
+            {
+                text: "Details",
+                align: "start",
+                value: "name",
+            },
+            { text: "Reg. Deadline", value: "deadline" },
+            { text: "Price", value: "price" },
+            { text: "Number", value: "number" },
+        ],
+        pricing: [
+            {
+                name: "Early bird tickets",
+                deadline: "2022/10/10",
+                price: 159,
+                number: 0,
+            },
+            {
+                name: "Normal ticket",
+                price: 237,
+                deadline: "2022/10/6",
+                number: 0,
+            },
+            {
+                name: "late",
+                price: 262,
+                deadline: "2022/10/2",
+                number: 0,
+            },
+            {
+                name: "Programming workshop",
+                price: 305,
+                deadline: "2022/10/4",
+                number: 0,
+            },
+            {
+                name: "Cryptocurrency training workshop",
+                price: 356,
+                deadline: "2022/10/8",
+                number: 0,
+            },
+            {
+                name: "Legal challenges training workshop",
+                price: 375,
+                deadline: "2022/10/11",
+                number: 0,
+            },
+        ],
+    }),
+    methods: {
+        onButtonClick(item) {
+            console.log("click on " + item.number);
+            this.editedIndex = this.desserts.indexOf(item);
+            this.editedItem = Object.assign({}, item);
+            this.dialog = true;
+            this.dialog = true;
+        },
     },
-    item: {
-      id: 1,
-      title: "Top western road trips",
-      subtitle: " scrambled it to make a type specimen book.",
-      description:
-        "specimen book. It ucius mei ei, debitis torquatos et pro, eos natum scribentur no. Putant verear constituto te qui. Adolescens persequeris vim ei. It ucius mei ei, debitis torquatos et pro, eos natum scribentur no. Putant verear constituto te qui. Adolescens persequeris vim ei. Vel nullam reprimique te.",
-      src: require("../assets/images/img3.jpg"),
-      time: "2022/9/9 15:30",
-    },
-    headers: [
-      {
-        text: "Details",
-        align: "start",
-        value: "name",
-      },
-      { text: "Reg. Deadline", value: "deadline" },
-      { text: "Price", value: "price" },
-      { text: "Number", value: "number" },
-    ],
-    pricing: [
-      {
-        name: "Early bird tickets",
-        deadline: "2022/10/10",
-        price: 159,
-        number: 0,
-      },
-      {
-        name: "Normal ticket",
-        price: 237,
-        deadline: "2022/10/6",
-        number: 0,
-      },
-      {
-        name: "late",
-        price: 262,
-        deadline: "2022/10/2",
-        number: 0,
-      },
-      {
-        name: "Programming workshop",
-        price: 305,
-        deadline: "2022/10/4",
-        number: 0,
-      },
-      {
-        name: "Cryptocurrency training workshop",
-        price: 356,
-        deadline: "2022/10/8",
-        number: 0,
-      },
-      {
-        name: "Legal challenges training workshop",
-        price: 375,
-        deadline: "2022/10/11",
-        number: 0,
-      },
-    ],
-  }),
-
-  methods: {
-    onButtonClick(item) {
-      console.log("click on " + item.number);
-      this.editedIndex = this.desserts.indexOf(item);
-      this.editedItem = Object.assign({}, item);
-      this.dialog = true;
-      this.dialog = true;
-    },
-  },
+    components: { BestSeller }
 };
 </script>
 
@@ -218,6 +270,19 @@ export default {
   }
 }
 
+/* @media only screen and (min-width: 1000px) {
+  .container1 {
+    height: 40vh;
+  }
+}
+
+
+@media only screen and (min-width: 800px) {
+  .container1 {
+    height: 40vh;
+  }
+} */
+
 .container1 {
   width: 100%;
   max-width: 100vw;
@@ -225,16 +290,18 @@ export default {
   position: relative;
 }
 .container2 {
-  height: 60vh;
+  /* height: 60vh; */
   width: 100%;
   max-width: 100vw;
-  margin: 10rem 0;
+  margin: 10rem 0 5rem 0;
   display: flex;
   padding: 0 3rem;
 
   justify-content: center;
   /* margin-top: 10rem; */
 }
+
+
 .card-container {
   position: absolute;
   height: fit-content;
@@ -270,7 +337,8 @@ export default {
   background-image: url("../assets/images/img3.jpg");
   background-size: cover;
 }
-.rtl-table , .more-details {
+.rtl-table,
+.more-details {
   direction: rtl;
   text-align: right;
 }
@@ -289,18 +357,17 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  padding: 2rem ;
-
-
+  padding: 2rem;
 }
-.details-top{
+.details-top {
 }
 .details-time {
   font-size: 0.9rem;
 }
 
 .details-time,
-.detail-action , .share-socials {
+.detail-action,
+.share-socials {
   display: flex;
   /* flex-direction:column; */
   gap: 2rem;
@@ -311,10 +378,32 @@ export default {
 .details-bottom {
   display: flex;
   flex-direction: column;
-  gap: .7rem;
+  gap: 0.7rem;
   justify-items: center;
 }
-.share-event-p{
-  margin-bottom: .3rem;
+.share-event-p {
+  margin-bottom: 0.3rem;
+}
+
+.container3 {
+  padding-bottom: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.course-details {
+  width: 60%;
+  height: 100%;
+  text-align: center;
+}
+.course-details-h4 {
+  margin-bottom: 3rem;
+}
+
+.course-details > h6 {
+  font-weight: bold;
+}
+.course-details>*p {
+  color: rgb(234, 234, 234);
 }
 </style>
